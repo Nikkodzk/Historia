@@ -42,11 +42,9 @@ rutas.get('/edit/:id', async (req, res) => {
 // edit post
 rutas.post('/edit', async (req, res) => {
     const editItem = await Item.findOne({anio: req.body.anio});
-    // res.send(editItem);
     editItem.nacional = req.body.nacional;
     editItem.mundial = req.body.mundial;
     await editItem.save();
-
     res.redirect('/');
 })
 

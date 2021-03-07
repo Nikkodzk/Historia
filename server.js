@@ -5,7 +5,9 @@ const mongoose = require('mongoose');
 
 
 
-mongoose.connect('mongodb://localhost:27017/historia', {
+// mongoose.connect('mongodb://localhost:27017/historia', {
+mongoose.connect('mongodb+srv://admin:admin@cluster0.c7yba.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
+
     useNewUrlParser: true, 
     useUnifiedTopology: true
 });
