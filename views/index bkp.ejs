@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia</title>
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css">
+
+
+
+</head>
+<body class="mt-5">
+    
+    
+    <main class="container">
+        
+        <div class="row mb-5">
+        
+            <div class="col-2 col-md-1 p-0">
+                <div class="text-center">
+                    <a href="add" class="btn btn-primary">+</a>
+                </div>
+            </div>
+
+            <div class="col-10 col-md-6 p-0">
+                <h3>Historia de la humanidad</h3>
+            </div>
+
+            <div class="col-12 col-md-5 p-0">
+                <input class="form-control" id="myInput" type="text" placeholder="Buscar..">
+            </div>
+            
+            
+            
+        </div>
+
+    <div class="">
+        <table class="table table-hover">
+            <thead class=""> 
+                <th class="">AÑO</th>
+                <th class="">ARG</th>
+                <th class="">MUNDO</th>
+                <th></th>
+            </thead>
+            <tbody id="myTable" class="text-left">           
+                <% for(var i=0; i<items.length; i++){ %>
+                    <tr>  
+                        <td>
+                            <%= items[i].anio %>
+                        </td>
+                        <td class="w-50 align-middle"> 
+                            <%= items[i].nacional %>
+                        </td>
+                        <td class="w-25 align-middle">
+                            <%= items[i].mundial %>
+                        </td>
+                        <td>
+                            <a href="delete/<%= items[i]._id%>" class="btn btn-danger">X</a>
+                        </td>
+                    </tr>
+                <% } %>
+            </tbody> 
+        </table>  
+    </div>
+
+
+</main>
+
+
+
+    <script>
+        $(document).ready(function(){
+          $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function() {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+          });
+        });
+
+        
+
+    </script>
+</body>
+</html>

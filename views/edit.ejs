@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/superhero/bootstrap.min.css">
+    
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+    <style>
+        /* para sacar el boton del input nro */
+        input[type=number]::-webkit-outer-spin-button, 
+        input[type=number]::-webkit-inner-spin-button { 
+            -webkit-appearance: none; 
+            margin: 0; } 
+        input[type=number] { 
+            -moz-appearance:textfield; 
+        }
+    </style>
+
+    <title><%= año.anio %></title>
+</head>
+<body>
+    
+    <div class="container-fluid">
+        <div class="row">
+            <form action="/edit" method="post" class="p-0 mt-2 col-12 col-md-6 offset-md-3">
+
+                <div class="row m-1 mb-2">
+                    <div class="col col-12 m-0">
+                        <h4 class="font-weeigth-ligh"> <%= año.anio %>
+                            <a href="/delete/<%= año._id%>" class="badge badge-danger ml-2">Eliminar</a>
+                        </h4>
+                        
+                    </div>
+                </div>
+
+                <!-- año -->
+                <input type="text" name='anio' value="<%= año.anio %>" class="d-none">
+                
+                <!-- mundo -->
+                <div class="row m-1">
+                    <div class="col col-12 m-0">
+                        <div class="col-12 p-1">
+                            <label for="mundial">Mundo</label>
+                        </div>
+                        <textarea name="mundial" cols="50" rows="5" placeholder="Ingrese un evento" class="form-control m-0 text-light" style="background-color: #343a40;"><%= año.mundial %></textarea>
+                    </div>
+                </div>
+
+                <!-- argentina -->
+                <div class="row m-1">
+                    <div class="col col-12 m-0">
+                        <div class="col-12 p-1">
+                            <label for="nacional">Argentina</label>
+                        </div>
+                        <textarea name="nacional" cols="50" rows="5" placeholder="Ingrese un evento" class="form-control text-light" style="background-color: #343a40;"><%= año.nacional %></textarea>
+                    </div>
+                </div>
+
+                <!-- botonera -->
+                <div class="row p-1 m-0">
+                    <div class="col-6">
+                        <input type="submit" value="Guardar" class="btn btn-outline-success w-100">
+                    </div>
+                    <div class="col-6">
+                        <a href="/" class="btn btn-outline-light w-100">Volver</a>
+                    </div>
+                </div>        
+                
+        
+            </form> 
+        </div>
+    </div>
+
+
+
+
+    <!-- jquery -->
+    <script>
+
+        $(document).ready(() => {
+
+            $('input[name="anio"]').focus();
+
+        });
+
+    </script>
+
+</body>
+</html>

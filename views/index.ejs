@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>[H]istoria</title>
+    
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/superhero/bootstrap.min.css">
+
+</head>
+<body>
+    
+    <main class="container-fluid">
+
+      <!-- boton y campo find -->
+      <div class="row">
+        <!-- boton -->
+        <div class="col-2 col-md-1 text-center p-2">
+          <a href="add" class="btn btn-primary rounded-circle">+</a>
+        </div>
+
+        <!-- campo find -->
+        <div class="col-10 col-md-11 p-2">
+          <input type="text" placeholder="Buscar" id="myInput" class="form-control w-100 border-bottom text-light" style="background-color: #2B3E50;">
+        </div>
+      </div>
+
+
+      <!-- titulos -->
+      <!-- <div class="row">
+        <div class="col text-center pt-1">
+          <h3>ARG</h3>
+        </div>
+        <div class="col text-center pt-1">
+          <h3>MUNDO</h3>
+        </div>
+      </div> -->
+
+
+      <div>
+
+        <table class="table table-sm">
+          <thead>
+            <th class="text-center">
+              ARG
+            </th>
+            <th></th>
+            <th class="text-center">
+              MUNDO
+            </th>
+          </thead>
+          <tbody id="myTable">
+
+            <% for(var i=0; i<items.length; i++){ %>
+              <tr>
+                <td class="p-1" style="width: 45%;">
+                  <ul class="m-0 p-0">
+                    <% if(items[i].nacional.length < 1) { %>
+                      <div></div>
+                    <% } else { %>
+                      <li class="list-group-item m-1">
+                        <%= items[i].nacional %>
+                      </li>
+                    <% } %>
+                  </ul>
+                </td>
+  
+                <td class="text-center align-middle p-1" style="width: 10%;">
+                  <h4 class="bg-primary rounded-pill p-1 m-0">
+                    <a href="/edit/<%=items[i]._id%>" style="text-decoration: none;">
+                      <%= items[i].anio %>
+                    </a>
+                  </h4>
+                </td>
+  
+                <td class="p-1" style="width: 45%;">
+                  <ul class="m-0 p-1">
+                    <% if(items[i].mundial.length < 1) { %>
+                      <div></div>
+                    <% } else { %>
+                      <li class="list-group-item m-1">
+                        <%= items[i].mundial %>
+                      </li>
+                    <% } %>
+                  </ul>
+                </td>
+              </tr>          
+            <% } %>
+
+          </tbody>
+        </table>
+      </div>
+
+
+    </main>
+
+  
+
+
+
+
+
+
+
+
+
+
+    <script>
+        $(document).ready(function(){
+          $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function() {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+          });
+        });
+
+        
+
+    </script>
+</body>
+</html>

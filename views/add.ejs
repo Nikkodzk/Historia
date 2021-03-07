@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/superhero/bootstrap.min.css">
+    
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+    <style>
+        input[type=number]::-webkit-outer-spin-button, 
+        input[type=number]::-webkit-inner-spin-button { 
+            -webkit-appearance: none; 
+            margin: 0; } 
+        input[type=number] { 
+            -moz-appearance:textfield; 
+        }
+    </style>
+
+    <title>Agregar evento</title>
+</head>
+<body>
+    
+    <div class="container-fluid">
+        <div class="row">
+            <form action="/" method="post" class="p-0 mt-2 col-12 col-md-6 offset-md-3">
+
+                <div class="row m-1 mb-2">
+                    <div class="col col-12 m-0 text-center">
+                        <!-- <input type="text" class="w-100 input-control text-center m-0" value="Nuevo evento" disabled>  -->
+                        <h4 class="font-weeigth-ligh">NUEVO INGRESO</h4>
+                    </div>
+                </div>
+
+                <div class="row m-1">
+                    <div class="col col-12 m-0">
+                        <input type="number" name="anio"  placeholder="Año" id="target" maxlength="4" minlength="4" class="w-100 form-control m-0 text-light" style="background-color: #343a40;"> 
+                    </div>
+                </div>
+                
+                <div class="row m-1">
+                    <div class="col col-12 m-0">
+                        <textarea name="mundial" cols="50" rows="5" placeholder="Mundo" class="form-control m-0 text-light" style="background-color: #343a40;"></textarea>
+                    </div>
+                </div>
+
+                
+                <div class="row m-1">
+                    <div class="col col-12 m-0">
+                        <textarea name="nacional" cols="50" rows="5" placeholder="Argentina" class="form-control text-light" style="background-color: #343a40;"></textarea>
+                    </div>
+                </div>
+
+                <!-- botonera -->
+                <div class="row p-1 m-0">
+                    <div class="col-6">
+                        <input type="submit" value="Guardar" class="btn btn-success w-100">
+                    </div>
+                    <div class="col-6">
+                        <a href="/" class="btn btn-danger w-100">Cancelar</a>
+                    </div>
+                </div>        
+                
+        
+            </form> 
+        </div>
+    </div>
+
+
+
+
+    <!-- jquery -->
+    <script>
+
+        $(document).ready(() => {
+
+            $('input[name="anio"]').focus();
+
+        });
+
+    </script>
+
+</body>
+</html>
